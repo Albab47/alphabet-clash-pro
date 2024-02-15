@@ -39,3 +39,7 @@ function setTextElemValueById(elementId, value) {
     element.innerText = value;
 }
 
+function getElementTextById(elemId) {
+    const element = document.getElementById(elemId);
+    return element.innerText;
+} 
