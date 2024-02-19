@@ -1,4 +1,7 @@
+let isGamePlayOn = false;
+
 function handleKeyUp(event) {
+  if (isGamePlayOn === false) return;
   const playerPressed = event.key;
 
   // stop the game if Esc pressed
@@ -52,11 +55,11 @@ function playNow() {
   // reset score and life
   setTextElemValueById('current-life', 5);
   setTextElemValueById('current-score', 0);
-
+  isGamePlayOn = true;
   continueGame();
 }
 
-function gameOver() { 
+function gameOver() {
   hideElementById('play-ground');
   showElementById('final-score');
   // update final score
@@ -65,4 +68,5 @@ function gameOver() {
   // clear selected key
   const currentAlphabet = getElementTextById('current-alphabet');
   removeBackgroundColorById(currentAlphabet);
+  isGamePlayOn = false;
 }
